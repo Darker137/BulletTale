@@ -14,13 +14,15 @@ int main()
 	InitWindow(screenScale.x, screenScale.y, "Bullet Hell Game");
 	SetTargetFPS(60);
 	//game initialization
+	GameState gameState = PLAYING; // Set the initial game state
+
 	Player* player = new Player(&screenScale);
 	BorderBox* borderBox = new BorderBox(&screenScale);
 	WaveCounter* waveCounter = new WaveCounter(&screenScale);
 	HealthBar* healthBar = new HealthBar(&screenScale);
 
 
-	WaveManager* waveManager = new WaveManager(&screenScale); // Initialize the wave manager
+	WaveManager* waveManager = new WaveManager(borderBox->ReturnInnerBorder()); // Initialize the wave manager
 	// Initialize the wave counter and health bar
 
 	float deltatime = 0.0f;
@@ -30,23 +32,30 @@ int main()
 	// Main game loop
 	while (!WindowShouldClose())
 	{
-		//updates
-		deltatime = GetFrameTime();
+		switch (gameState) // Check the game state
 
-		player->Movement(&deltatime, borderBox->ReturnInnerBorder()); //updates the player position
-		waveManager->Update(&deltatime, player->ReturnHitbox(), borderBox->ReturnInnerBorder()); //updates the wave manager
+		{
+		case PLAYING: // If the game is in the playing state
+			// Update
+			deltatime = GetFrameTime();
 
-		BeginDrawing();
+			player->Movement(&deltatime, borderBox->ReturnInnerBorder()); //updates the player position
+			waveManager->Update(&deltatime, player, borderBox->ReturnInnerBorder()); //updates the wave manager
 
-		ClearBackground(BLACK);
-		// DrawBackingGridCheckers(); //draws the backing grid for testing
-		borderBox->Draw(); //draws the border box
-		player->Draw(); //draws the player
-		waveCounter->Draw(); //draws the wave counter
-		healthBar->Draw(player->ReturnMaxHealth(), player->ReturnHealth()); //draws the health bar
-		waveManager->Draw(); //draws the wave manager
+			BeginDrawing();
 
-		EndDrawing();
+			ClearBackground(BLACK);
+			//DrawBackingGridCheckers(); //draws the backing grid for testing
+			borderBox->Draw(); //draws the border box
+			player->Draw(); //draws the player
+			waveCounter->Draw(waveManager->GetWaveNumber()); //draws the wave counter
+			healthBar->Draw(player->ReturnMaxHealth(), player->ReturnHealth()); //draws the health bar
+			waveManager->Draw(); //draws the wave manager
+
+			EndDrawing();
+			break;
+
+		}
 	}
 }
 

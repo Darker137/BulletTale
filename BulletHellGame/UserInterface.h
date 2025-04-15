@@ -18,7 +18,6 @@ public:
 
 class WaveCounter {
 protected:
-	int waveCount; // current wave count
 	int fontSize; // font size
 	Vector2 position; // position of the text
 	Color color; // color of the text
@@ -26,8 +25,8 @@ protected:
 	Vector2 drawingPosition; // position of the text to be drawn
 public:
 	WaveCounter(const Vector2* screenScale);
-	void SetDrawingPosition();
-	void Draw();
+	void SetDrawingPosition(int* wave);
+	void Draw(int* wave);
 };
 
 class HealthBar {

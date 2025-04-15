@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\Attacks.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Waves.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\Waves.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\GeneralFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\UserInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\BulletHellGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\BulletHellGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\UserInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Waves.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\Waves.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -35,8 +27,8 @@
       "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\Waves.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\BulletHellGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\BulletHellGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\UserInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -45,6 +37,17 @@
     {
       "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\GeneralFunctions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\GeneralFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C730E57E-C781-4958-853A-8F514AE6E8D1}|BulletHellGame\\BulletHellGame.vcxproj|solutionrelative:BulletHellGame\\Attacks.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\src\\raylib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -58,154 +61,167 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Waves.cpp",
-              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Waves.cpp",
-              "RelativeDocumentMoniker": "BulletHellGame\\Waves.cpp",
-              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Waves.cpp",
-              "RelativeToolTip": "BulletHellGame\\Waves.cpp",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACoAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-07T14:44:21.943Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserInterface.h",
-              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.h",
-              "RelativeDocumentMoniker": "BulletHellGame\\UserInterface.h",
-              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.h",
-              "RelativeToolTip": "BulletHellGame\\UserInterface.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-06T15:45:20.821Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Player.cpp",
-              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Player.cpp",
-              "RelativeDocumentMoniker": "BulletHellGame\\Player.cpp",
-              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Player.cpp",
-              "RelativeToolTip": "BulletHellGame\\Player.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-06T13:37:39.96Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserInterface.cpp",
-              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.cpp",
-              "RelativeDocumentMoniker": "BulletHellGame\\UserInterface.cpp",
-              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.cpp",
-              "RelativeToolTip": "BulletHellGame\\UserInterface.cpp",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAADAAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-06T15:45:06.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "GeneralFunctions.h",
-              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.h",
-              "RelativeDocumentMoniker": "BulletHellGame\\GeneralFunctions.h",
-              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.h",
-              "RelativeToolTip": "BulletHellGame\\GeneralFunctions.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-06T13:05:20.684Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Attacks.h",
-              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.h",
-              "RelativeDocumentMoniker": "BulletHellGame\\Attacks.h",
-              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.h",
-              "RelativeToolTip": "BulletHellGame\\Attacks.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-07T15:21:50.136Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GeneralFunctions.cpp",
-              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.cpp",
-              "RelativeDocumentMoniker": "BulletHellGame\\GeneralFunctions.cpp",
-              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.cpp",
-              "RelativeToolTip": "BulletHellGame\\GeneralFunctions.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-06T13:05:13.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Attacks.cpp",
-              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.cpp",
-              "RelativeDocumentMoniker": "BulletHellGame\\Attacks.cpp",
-              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.cpp",
-              "RelativeToolTip": "BulletHellGame\\Attacks.cpp",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAAAJ8AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-07T15:22:00.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BulletHellGame.cpp",
-              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\BulletHellGame.cpp",
-              "RelativeDocumentMoniker": "BulletHellGame\\BulletHellGame.cpp",
-              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\BulletHellGame.cpp",
-              "RelativeToolTip": "BulletHellGame\\BulletHellGame.cpp",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAC4AAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-25T18:23:49.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Player.h",
               "RelativeDocumentMoniker": "BulletHellGame\\Player.h",
               "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Player.h",
               "RelativeToolTip": "BulletHellGame\\Player.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-04-06T13:38:02.642Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
+              "Title": "GeneralFunctions.h",
+              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.h",
+              "RelativeDocumentMoniker": "BulletHellGame\\GeneralFunctions.h",
+              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.h",
+              "RelativeToolTip": "BulletHellGame\\GeneralFunctions.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-06T13:05:20.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Attacks.h",
+              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.h",
+              "RelativeDocumentMoniker": "BulletHellGame\\Attacks.h",
+              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.h",
+              "RelativeToolTip": "BulletHellGame\\Attacks.h",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-07T15:21:50.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BulletHellGame.cpp",
+              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\BulletHellGame.cpp",
+              "RelativeDocumentMoniker": "BulletHellGame\\BulletHellGame.cpp",
+              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\BulletHellGame.cpp",
+              "RelativeToolTip": "BulletHellGame\\BulletHellGame.cpp",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAC8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-25T18:23:49.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Waves.cpp",
+              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Waves.cpp",
+              "RelativeDocumentMoniker": "BulletHellGame\\Waves.cpp",
+              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Waves.cpp",
+              "RelativeToolTip": "BulletHellGame\\Waves.cpp",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-07T14:44:21.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Waves.h",
               "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Waves.h",
               "RelativeDocumentMoniker": "BulletHellGame\\Waves.h",
               "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Waves.h",
               "RelativeToolTip": "BulletHellGame\\Waves.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB4AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-04-07T14:44:28.063Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserInterface.cpp",
+              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.cpp",
+              "RelativeDocumentMoniker": "BulletHellGame\\UserInterface.cpp",
+              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.cpp",
+              "RelativeToolTip": "BulletHellGame\\UserInterface.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-06T15:45:06.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GeneralFunctions.cpp",
+              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.cpp",
+              "RelativeDocumentMoniker": "BulletHellGame\\GeneralFunctions.cpp",
+              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\GeneralFunctions.cpp",
+              "RelativeToolTip": "BulletHellGame\\GeneralFunctions.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-06T13:05:13.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Player.cpp",
+              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Player.cpp",
+              "RelativeDocumentMoniker": "BulletHellGame\\Player.cpp",
+              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Player.cpp",
+              "RelativeToolTip": "BulletHellGame\\Player.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-06T13:37:39.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserInterface.h",
+              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.h",
+              "RelativeDocumentMoniker": "BulletHellGame\\UserInterface.h",
+              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\UserInterface.h",
+              "RelativeToolTip": "BulletHellGame\\UserInterface.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-06T15:45:20.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Attacks.cpp",
+              "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.cpp",
+              "RelativeDocumentMoniker": "BulletHellGame\\Attacks.cpp",
+              "ToolTip": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\Attacks.cpp",
+              "RelativeToolTip": "BulletHellGame\\Attacks.cpp",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAmwHsAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-07T15:22:00.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "vector",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\vector",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\vector",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\vector",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\vector",
+              "ViewState": "AgIAAFQHAAAAAAAAAAAmwGQHAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-14T14:54:56.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "raylib.h",
               "DocumentMoniker": "C:\\UniWork\\Year2\\Year2 Term2\\Portfolio\\BulletHellGame\\BulletHellGame\\src\\raylib.h",
               "RelativeDocumentMoniker": "BulletHellGame\\src\\raylib.h",
@@ -213,8 +229,7 @@
               "RelativeToolTip": "BulletHellGame\\src\\raylib.h",
               "ViewState": "AgIAAIoAAAAAAAAAAAAhwJoAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-06T15:16:03.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T15:16:03.13Z"
             }
           ]
         }

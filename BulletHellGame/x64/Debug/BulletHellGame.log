@@ -1,10 +1,6 @@
-﻿  Attacks.cpp
-C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(27,80): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(27,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(27,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(27,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(59,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(84,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(85,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(86,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+﻿  BulletHellGame.cpp
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\BulletHellGame.cpp(14,39): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\BulletHellGame.cpp(14,24): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  Player.cpp
+  Generating Code...
   BulletHellGame.vcxproj -> C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\x64\Debug\BulletHellGame.exe

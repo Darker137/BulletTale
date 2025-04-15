@@ -29,6 +29,8 @@ public:
 	void Draw();
 	void BorderCollision(Square* borderBox);
 	void Movement(float* deltatime, Square* borderBox);
+	void HealPlayer(int healAmount);
+	void DamagePlayer(int damageAmount);
 
 	// Getters
 	int* ReturnHealth();

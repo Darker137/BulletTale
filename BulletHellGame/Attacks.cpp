@@ -8,11 +8,22 @@ Bullet::Bullet(Vector2 position, Vector2 velocity) : position(position), velocit
 	// Set the hitbox size and position
 	hitbox.size = { 16.0f, 16.0f };
 	hitbox.position = { position.x - (hitbox.size.x /2), position.y - (hitbox.size.y / 2) };
+	if (rand() % 29 == 0)
+	{
+		healer = true; // Set the bullet as a healer
+	}
+	else
+	{
+		healer = false; // Set the bullet as not a healer
+	}
 }
 
 /// Update the bullet position based on the delta time
 void Bullet::Update(float* deltatime)
 {
+	// Update the bullet velocity by a small factor
+	velocity.x *= 1.01f;
+	velocity.y *= 1.01f;
 	// Update the bullet position based on the velocity and delta time
 	position.x += velocity.x * (*deltatime);
 	position.y += velocity.y * (*deltatime);
@@ -24,17 +35,24 @@ void Bullet::Update(float* deltatime)
 void Bullet::Draw()
 {
 	// Draw the bullet as a rectangle at its current position
-	DrawRectangle(hitbox.position.x, hitbox.position.y, hitbox.size.x, hitbox.size.y, WHITE);
+	if (healer)
+	{
+		DrawRectangle(hitbox.position.x, hitbox.position.y, hitbox.size.x, hitbox.size.y, GREEN);
+	}
+	else
+	{
+		DrawRectangle(hitbox.position.x, hitbox.position.y, hitbox.size.x, hitbox.size.y, WHITE);
+	}
 }
 
 /// Check for collision with the player hitbox
-bool Bullet::PlayerCollision(Square* playerHitbox)
+bool Bullet::PlayerCollision(Player* player)
 {
 	// Check for collision with the player hitbox
-	return (hitbox.position.x < playerHitbox->position.x + playerHitbox->size.x &&
-		hitbox.position.x + hitbox.size.x > playerHitbox->position.x &&
-		hitbox.position.y < playerHitbox->position.y + playerHitbox->size.y &&
-		hitbox.position.y + hitbox.size.y > playerHitbox->position.y);
+	return (hitbox.position.x < player->ReturnHitbox()->position.x + player->ReturnHitbox()->size.x &&
+		hitbox.position.x + hitbox.size.x > player->ReturnHitbox()->position.x &&
+		hitbox.position.y < player->ReturnHitbox()->position.y + player->ReturnHitbox()->size.y &&
+		hitbox.position.y + hitbox.size.y > player->ReturnHitbox()->position.y);
 }
 
 bool Bullet::BorderCollision(Square* borderBox)
@@ -47,6 +65,11 @@ bool Bullet::BorderCollision(Square* borderBox)
 		hitbox.position.y + hitbox.size.y > borderBox->position.y + borderBox->size.y);
 }
 
+bool* Bullet::ReturnHealer()
+{
+	// Return if the bullet is a healer
+	return &healer;
+}
 
 
 // Attack class implementation
@@ -66,6 +89,8 @@ bool* Attack::GetIsActive()
 	return &isActive;
 }
 
+// BulletWheel class implementation
+
 BulletWheel::BulletWheel(int* wave, Vector2 position) : Attack(wave, uniqueSpeed)
 {
 	// Initialize the BulletWheel attack with the given wave and unique sp
@@ -82,15 +107,24 @@ BulletWheel::BulletWheel(int* wave, Vector2 position) : Attack(wave, uniqueSpeed
 	wheelRotation = 0.0f; // Set the wheel rotation
 
 	bulletCap = 20 * pow(1.05f, *wave - 1); // Set the maximum number of bullets
-	bulletInterval = 0.2 - (pow(1.1, (*wave - 1)) / 1000); // Set the interval between bullets
+	bulletInterval = 0.1 - (pow(1.1, (*wave - 1)) / 1000); // Set the interval between bullets
 	bulletCount = 0.0f; // Initialize the bullet count
 	bulletTimer = 0.0f; // Initialize the bullet timer
 
 	warmupInterval = 1.0f; // Set the warmup interval
 	warmupTimer = 0.0f; // Initialize the warmup timer
+
+	if (rand() % 2 == 0) // Randomly set the attack direction
+	{
+		clockWise = true; // Set the attack as clockwise
+	}
+	else
+	{
+		clockWise = false; // Set the attack as counter-clockwise
+	}
 }
 
-void BulletWheel::Update(float* deltatime, Square* PlayerHitbox, Square* borderHitbox) {
+void BulletWheel::Update(float* deltatime, Player* player, Square* borderHitbox) {
 	if (warmupTimer < warmupInterval) { // Check if the warmup timer is less than the warmup interval
 			warmupTimer += *deltatime; // Update the warmup timer
 			wheelHitbox.width += wheelSize.x * (*deltatime); // Increase the wheel hitbox width
@@ -117,16 +151,24 @@ void BulletWheel::Update(float* deltatime, Square* PlayerHitbox, Square* borderH
 	}
 
 	// Update the wheel rotation
-	wheelRotation += 360.0f * (*deltatime) * 0.5f; // Rotate the wheel
-	if (wheelRotation >= 360.0f) { // Check if the wheel rotation exceeds 360 degrees
-		wheelRotation -= 360.0f; // Reset the wheel rotation
+	if (clockWise) { // Check if the attack is clockwise
+		wheelRotation -= 360.0f * (*deltatime) * 0.8f; // Rotate the wheel
+		if (wheelRotation <= 0.0f) { // Check if the wheel rotation is less than or equal to 0 degrees
+			wheelRotation += 360.0f; // Reset the wheel rotation
+		}
+	}
+	else {
+		wheelRotation += 360.0f * (*deltatime) * 0.8f; // Rotate the wheel
+		if (wheelRotation >= 360.0f) { // Check if the wheel rotation is greater than or equal to 360 degrees
+			wheelRotation -= 360.0f; // Reset the wheel rotation
+		}
 	}
 	// Update the position of each bullet
 	for (size_t i = 0; i < bullets.size(); i++) {
 		bullets[i].Update(deltatime); // Update each bullet
 	}
 	// Check for collision with the player hitbox and border hitbox
-	Collision(PlayerHitbox, borderHitbox); // Check for collision with player and border
+	Collision(player, borderHitbox); // Check for collision with player and border
 	CheckForAttackEnd(); // Check if the attack is still active
 }
 
@@ -145,12 +187,19 @@ void BulletWheel::Draw() {
 	}
 }
 
-void BulletWheel::Collision(Square* playerHitbox, Square* borderHitbox) {
+void BulletWheel::Collision(Player* player, Square* borderHitbox) {
+	/*
 	// Check for collision with the player hitbox
 	for (size_t i = 0; i < bullets.size(); i++) {
-		if (bullets[i].PlayerCollision(playerHitbox)) {
+		if (bullets[i].PlayerCollision(player)) {
 			// Handle collision with player
 			bullets.erase(bullets.begin() + i); // Remove the bullet
+			if (*bullets[i].ReturnHealer()) { // Check if the bullet is a healer
+				player->HealPlayer(10); // Heal the player
+			}
+			else {
+				player->DamagePlayer(damage); // Damage the player
+			}
 			i--; // Decrement the index
 		}
 	}
@@ -160,6 +209,23 @@ void BulletWheel::Collision(Square* playerHitbox, Square* borderHitbox) {
 			// Handle collision with border
 			bullets.erase(bullets.begin() + i); // Remove the bullet
 			i--; // Decrement the index
+		}
+	}*/
+	for (int i = bullets.size() - 1; i >= 0; i--) {
+		if (bullets[i].PlayerCollision(player))
+		{
+			if (*bullets[i].ReturnHealer()) { // Check if the bullet is a healer
+				player->HealPlayer(10); // Heal the player
+			}
+			else {
+				player->DamagePlayer(damage); // Damage the player
+			}
+			bullets.erase(bullets.begin() + i); // Remove the bullet
+		}
+	}
+	for (int i = bullets.size() - 1; i >= 0; i--) {
+		if (bullets[i].BorderCollision(borderHitbox)) {
+			bullets.erase(bullets.begin() + i); // Remove the bullet
 		}
 	}
 }

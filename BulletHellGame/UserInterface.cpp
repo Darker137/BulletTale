@@ -15,6 +15,7 @@ void BorderBox::Draw()
 {
 	// Draw the border box using the specified position, size, color, and thickness
 	DrawRectangleLinesEx({ outerBorder.position.x, outerBorder.position.y, outerBorder.size.x, outerBorder.size.y }, thickness, color);
+	DrawRectangleLinesEx({ outerBorder.position.x - 64, outerBorder.position.y - 64, outerBorder.size.x + 128, outerBorder.size.y + 128 }, 64, BLACK);
 }
 
 Square* BorderBox::ReturnInnerBorder() {
@@ -25,25 +26,25 @@ Square* BorderBox::ReturnInnerBorder() {
 WaveCounter::WaveCounter(const Vector2* screenScale)
 {
 	// Set the initial wave count, font size, position, and color
-	waveCount = 1;
 	fontSize = 48;
 	position = { screenScale->x / 2, 32 };
 	color = WHITE;
 
-	drawingPosition = {}; SetDrawingPosition(); // initialize the drawing position
+	drawingPosition = {};
 }
 
-void WaveCounter::SetDrawingPosition()
+void WaveCounter::SetDrawingPosition(int* wave)
 {
 	// Set the drawing position based on the wave count and font size
-	drawingPosition.x = position.x - MeasureText(TextFormat("%i", waveCount), fontSize) / 2;
+	drawingPosition.x = position.x - MeasureText(TextFormat("%i", *wave), fontSize) / 2;
 	drawingPosition.y = position.y - (fontSize / 2);
 }
 
-void WaveCounter::Draw()
+void WaveCounter::Draw(int* wave)
 {
+	SetDrawingPosition(wave); // Update the drawing position based on the wave count
 	// Draw the wave count text at the calculated position
-	DrawText(TextFormat("%i", waveCount), drawingPosition.x, drawingPosition.y, fontSize, color);
+	DrawText(TextFormat("%i", *wave), drawingPosition.x, drawingPosition.y, fontSize, color);
 }
 
 HealthBar::HealthBar(const Vector2* screenScale)

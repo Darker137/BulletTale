@@ -17,7 +17,7 @@ Player::Player(const Vector2* screenScale)
 	hitboxSquare.position = { 0,0 }; SetHitboxPosition();
 
 	velocity = { 0, 0 };
-	speed = 200.0f;
+	speed = 300.0f;
 
 	maxHealth = 100;
 	health = maxHealth;
@@ -83,6 +83,25 @@ void Player::Movement(float* deltatime, Square* borderBox)
 	BorderCollision(borderBox);
 	SetDrawingPosition();
 	SetHitboxPosition();
+}
+
+void Player::HealPlayer(int healAmount)
+{
+	// Heal the player by the specified amount
+	health += healAmount;
+	if (health > maxHealth) {
+		health = maxHealth; // Cap the health at maxHealth
+	}
+}
+
+void Player::DamagePlayer(int damageAmount)
+{
+	// Damage the player by the specified amount
+	health -= damageAmount;
+	if (health < 0) {
+		health = 0; // Cap the health at 0
+	}
+	cout << health << endl; // Print the current health
 }
 
 // Getters

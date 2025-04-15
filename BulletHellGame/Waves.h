@@ -13,7 +13,7 @@ protected:
 public:
 	WaveBase(); // constructor
 	void AddAttack(Attack* attack); // add an attack to the wave
-	void Update(float* deltatime, Square* PlayerHitbox, Square* borderHitbox); // update the wave
+	void Update(float* deltatime, Player* player, Square* borderHitbox); // update the wave
 	void Draw(); // draw the wave
 	bool CheckForWaveEnd(); // set the wave as active or inactive
 };
@@ -23,11 +23,13 @@ class WaveManager
 protected:
 	int waveNumber; // current wave number
 	vector<WaveBase*> waves; // list of waves
+	Square spawnArea; // spawn area for the attacks
 public:
-	WaveManager(const Vector2* screenScale); // constructor
-	void Update(float* deltatime, Square* PlayerHitbox, Square* borderHitbox); // update the wave manager
+	WaveManager(Square* border); // constructor
+	void Update(float* deltatime, Player* player, Square* borderHitbox); // update the wave manager
 	void Draw(); // draw the wave manager
 	int* GetWaveNumber(); // get the current wave number
+	void NewWave(); // create a new wave
 };
 
 

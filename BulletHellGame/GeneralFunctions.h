@@ -12,6 +12,12 @@ struct Square {
 	Vector2 size;
 };
 
+enum GameState {
+	MAINMENU,
+	PLAYING,
+	GAMEOVER
+};
+
 void DrawBackingGridCheckers(); //draws the backing grid for testing	
 
 float Vector2Length(Vector2 vector);
