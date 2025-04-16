@@ -42,8 +42,8 @@ WaveManager::WaveManager(Square* border) // Constructor for the WaveManager clas
 {
 	waveNumber = 1; // Initialize the wave number
 
-	spawnArea.position = { border->position.x + 16, border->position.y + 16 }; // Set the spawn area position
-	spawnArea.size = { border->size.x - 32, border->size.y - 32 }; // Set the spawn area size
+	spawnArea.position = { border->position.x , border->position.y }; // Set the spawn area position
+	spawnArea.size = { border->size.x , border->size.y }; // Set the spawn area size
 
 /*
 	// Initialize the waves vector with a new wave
@@ -108,7 +108,13 @@ void WaveManager::NewWave() {
 	}
 	WaveBase* newWave = new WaveBase(); // Create a new wave
 	for (int i = 0; i < attackCount; i++) { // Loop through the number of attacks
-		newWave->AddAttack(new BulletWheel(&waveNumber, { spawnArea.position.x + (rand() % (int)spawnArea.size.x), spawnArea.position.y + (rand() % (int)spawnArea.size.y) })); // Add a BulletWheel attack to the wave
+		if (rand() % 2 == 0) { // Randomly choose between BulletWheel and BulletRing
+			newWave->AddAttack(new BulletWheel(&waveNumber, { spawnArea.position.x + ((((rand() % 4) + 1) * 0.2f) * spawnArea.size.x), spawnArea.position.y + ((((rand() % 4) + 1) * 0.2f) * spawnArea.size.y) })); // Add a BulletWheel attack to the wave
+		}
+		else {
+			// Add a BulletRing attack to the wave
+			newWave->AddAttack(new BulletRing(&waveNumber, { spawnArea.position.x + ((((rand() % 4) + 1) * 0.2f) * spawnArea.size.x), spawnArea.position.y + ((((rand() % 4) + 1) * 0.2f) * spawnArea.size.y) })); // Add a BulletWheel attack to the wave
+		}
 	}
 	waves.push_back(newWave); // Add the wave to the vector
 }

@@ -46,11 +46,11 @@ int main()
 
 			ClearBackground(BLACK);
 			//DrawBackingGridCheckers(); //draws the backing grid for testing
-			borderBox->Draw(); //draws the border box
 			player->Draw(); //draws the player
+			waveManager->Draw(); //draws the wave manager
+			borderBox->Draw(); //draws the border box
 			waveCounter->Draw(waveManager->GetWaveNumber()); //draws the wave counter
 			healthBar->Draw(player->ReturnMaxHealth(), player->ReturnHealth()); //draws the health bar
-			waveManager->Draw(); //draws the wave manager
 
 			EndDrawing();
 			break;
