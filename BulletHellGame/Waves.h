@@ -23,7 +23,9 @@ class WaveManager
 protected:
 	int waveNumber; // current wave number
 	vector<WaveBase*> waves; // list of waves
-	Square spawnArea; // spawn area for the attacks
+	Square playArea; // area of the playing box
+	Square laserSpawnArea; // spawn area for lasers
+	vector<Vector2> bulletAttackPositions; // spawn positions for the attacks
 public:
 	WaveManager(Square* border); // constructor
 	void Update(float* deltatime, Player* player, Square* borderHitbox); // update the wave manager

@@ -35,6 +35,7 @@ public:
 	virtual void Draw() = 0; // draw the attack
 	virtual void PlayerCollision(Player* player) = 0; // check for collision with player hitbox
 	virtual void CheckForAttackEnd() = 0; // check for attack end
+	virtual bool Warmup(float* deltatime) = 0; // warms up the attack before starting and returns if still warming up
 	bool* GetIsActive(); // get the active status of the attack
 };
 
@@ -62,7 +63,7 @@ public:
 	void BorderCollision(Square* borderHitbox); // check for collision with border box
 	void CheckForAttackEnd() override; // check for attack end
 	void SetOrigin(); // set the origin of the source
-	bool Warmup(float* deltatime); // warmup the attack and return if the attack is ready
+	bool Warmup(float* deltatime) override; // warmup the attack and return if the attack is ready
 
 	virtual void NewBullet() = 0; // create a new bullet
 };
@@ -90,6 +91,37 @@ public:
 	void Update(float* deltatime, Player* player, Square* borderHitbox) override; // update the attack
 	void NewBullet() override; // create a new bullet
 	void SourceCollision(); // check for bullet collision with the source
+};
+
+enum Direction{
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN,
+};
+
+class Laser : public Attack {
+protected:
+	Direction laserStart;
+
+	Square warningHitbox;
+	Square laserHitbox;
+
+	float warmupInterval;
+	float warmupTimer;
+
+	bool flash;
+	float flashInterval;
+	float flashTimer;
+
+	Square border;
+public:
+	Laser(int* wave, Square* playArea, Square* spawnArea);
+	void Update(float* deltatime, Player* player, Square* borderHitbox) override;
+	bool Warmup(float* deltatime) override;
+	void Draw() override;
+	void PlayerCollision(Player* player) override;
+	void CheckForAttackEnd() override;
 };
 
 #endif

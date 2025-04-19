@@ -21,6 +21,14 @@ protected:
 	//player health
 	int maxHealth;
 	int health;
+
+	bool isInvincible; // Flag for invincibility
+	float invincibilityDuration; // Duration of invincibility in seconds
+	float invincibilityTimer; // Timer for invincibility
+	
+	bool flash = false; // Flag for flash effect
+	float flashDuration = 0.05f; // Duration of the flash effect in seconds
+	float flashTimer = 0.0f; // Timer for the flash effect
 	
 public:
 	Player(const Vector2* screenScale);
@@ -31,6 +39,7 @@ public:
 	void Movement(float* deltatime, Square* borderBox);
 	void HealPlayer(int healAmount);
 	void DamagePlayer(int damageAmount);
+	void Update(float* deltatime, Square* borderBox, GameState* gameState);
 
 	// Getters
 	int* ReturnHealth();

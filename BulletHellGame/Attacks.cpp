@@ -6,7 +6,7 @@
 Bullet::Bullet(Vector2 position, Vector2 velocity) : position(position), velocity(velocity) // Initialize position
 {
 	// Set the hitbox size and position
-	hitbox.size = { 16.0f, 16.0f };
+	hitbox.size = { 12.0f, 12.0f };
 	hitbox.position = { position.x - (hitbox.size.x /2), position.y - (hitbox.size.y / 2) };
 	if (rand() % 29 == 0)
 	{
@@ -367,5 +367,172 @@ void BulletRing::SourceCollision()
 		if (bullets[i].OtherCollision(&sourceHitbox)) {
 			bullets.erase(bullets.begin() + i); // Remove the bullet
 		}
+	}
+}
+
+Laser::Laser(int* wave, Square* playArea, Square* spawnArea) : Attack(wave){
+	damage = 10;
+	uniqueSpeed = 4 * baseSpeed;
+	
+	laserStart = Direction((rand() % 4));
+
+	warningHitbox = { {0,0},{0,0} };
+	laserHitbox = { {0,0},{0,0} };
+
+	switch (laserStart)
+	{
+	case LEFT:
+	{
+		warningHitbox.position.x = playArea->position.x;
+		warningHitbox.position.y = spawnArea->position.y + (rand() % (int)spawnArea->size.y);
+		warningHitbox.size.x = playArea->size.x;
+		warningHitbox.size.y = 12.0f;
+
+		laserHitbox.position.x = warningHitbox.position.x - warningHitbox.size.x;
+		laserHitbox.position.y = warningHitbox.position.y;
+		laserHitbox.size = warningHitbox.size;
+
+		break;
+	}
+	case RIGHT:
+	{
+		warningHitbox.position.x = playArea->position.x;
+		warningHitbox.position.y = spawnArea->position.y + (rand() % (int)spawnArea->size.y);
+		warningHitbox.size.x = playArea->size.x;
+		warningHitbox.size.y = 12.0f;
+
+		laserHitbox.position.x = warningHitbox.position.x + warningHitbox.size.x;
+		laserHitbox.position.y = warningHitbox.position.y;
+		laserHitbox.size = warningHitbox.size;
+		break;
+	}
+	case UP:
+	{
+		warningHitbox.position.x = spawnArea->position.x + (rand() % (int)spawnArea->size.x);
+		warningHitbox.position.y = playArea->position.y;
+		warningHitbox.size.x = 12.0f;
+		warningHitbox.size.y = playArea->size.y;
+
+		laserHitbox.position.x = warningHitbox.position.x;
+		laserHitbox.position.y = warningHitbox.position.y - warningHitbox.size.y;
+		laserHitbox.size = warningHitbox.size;
+		break;
+	}
+	case DOWN:
+	{
+		warningHitbox.position.x = spawnArea->position.x + (rand() % (int)spawnArea->size.x);
+		warningHitbox.position.y = playArea->position.y;
+		warningHitbox.size.x = 12.0f;
+		warningHitbox.size.y = playArea->size.y;
+
+		laserHitbox.position.x = warningHitbox.position.x;
+		laserHitbox.position.y = warningHitbox.position.y + warningHitbox.size.y;
+		laserHitbox.size = warningHitbox.size;
+		break;
+	}
+	}
+
+	warmupInterval = 2.0f;
+	warmupTimer = 0.0f;
+
+	flash = true;
+	flashInterval = 0.4f;
+	flashTimer = 0.0f;
+
+	border = *playArea;
+}
+
+void Laser::Update(float* deltatime, Player* player, Square* borderHitbox) {
+	if (Warmup(deltatime)) {
+		switch (laserStart)
+		{
+		case LEFT:
+		{
+			laserHitbox.position.x += (uniqueSpeed * (*deltatime));
+			break;
+		}
+		case RIGHT:
+		{
+			laserHitbox.position.x -= (uniqueSpeed * (*deltatime));
+			break;
+		}
+		case UP:
+		{
+			laserHitbox.position.y += (uniqueSpeed * (*deltatime));
+			break;
+		}
+		case DOWN:
+		{
+			laserHitbox.position.y -= (uniqueSpeed * (*deltatime));
+			break;
+		}
+		}
+	}
+	PlayerCollision(player);
+	CheckForAttackEnd();
+}
+
+bool Laser::Warmup(float* deltatime) {
+	if (warmupTimer < warmupInterval) {
+		warmupTimer += *deltatime;
+		flashTimer += *deltatime;
+		if (flashTimer >= flashInterval) {
+			flashTimer = 0.0f;
+			flash = !flash;
+		}
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+void Laser::Draw() {
+	if (warmupTimer < warmupInterval) {
+		if (flash) {
+			DrawRectangle(warningHitbox.position.x, warningHitbox.position.y, warningHitbox.size.x, warningHitbox.size.y, Color{ 255,255,255,128 });
+		}
+	}
+	else {
+		DrawRectangle(laserHitbox.position.x, laserHitbox.position.y, laserHitbox.size.x, laserHitbox.size.y, WHITE);
+	}
+}
+
+void Laser::PlayerCollision(Player* player) {
+	if (laserHitbox.position.x < player->ReturnHitbox()->position.x + player->ReturnHitbox()->size.x &&
+		laserHitbox.position.x + laserHitbox.size.x > player->ReturnHitbox()->position.x &&
+		laserHitbox.position.y < player->ReturnHitbox()->position.y + player->ReturnHitbox()->size.y &&
+		laserHitbox.position.y + laserHitbox.size.y > player->ReturnHitbox()->position.y) {
+		player->DamagePlayer(damage);
+	}
+}
+
+void Laser::CheckForAttackEnd() {
+	switch (laserStart) 
+	{
+	case LEFT:
+	{
+		if (laserHitbox.position.x > border.position.x + border.size.x) {
+			isActive = false;
+		}
+	}
+	case RIGHT:
+	{
+		if (laserHitbox.position.x + laserHitbox.size.x < border.position.x) {
+			isActive = false;
+		}
+	}
+	case UP:
+	{
+		if (laserHitbox.position.y > border.position.y + border.size.y) {
+			isActive = false;
+		}
+	}
+	case DOWN:
+	{
+		if (laserHitbox.position.y + laserHitbox.size.y < border.position.y) {
+			isActive = false;
+		}
+	}
 	}
 }

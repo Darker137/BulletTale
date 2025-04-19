@@ -16,4 +16,13 @@ C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp
 C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(289,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(290,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(366,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(493,110): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(493,88): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(493,66): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(493,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(497,101): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(497,81): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(497,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\BulletHellGame\Attacks.cpp(497,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   BulletHellGame.vcxproj -> C:\UniWork\Year2\Year2 Term2\Portfolio\BulletHellGame\x64\Debug\BulletHellGame.exe

@@ -21,6 +21,10 @@ Player::Player(const Vector2* screenScale)
 
 	maxHealth = 100;
 	health = maxHealth;
+
+	isInvincible = false;
+	invincibilityDuration = 0.5f; // Duration of invincibility in seconds
+	invincibilityTimer = 0.0f; // Timer for invincibility
 }
 
 void Player::SetDrawingPosition()
@@ -39,8 +43,16 @@ void Player::SetHitboxPosition()
 
 void Player::Draw()
 {
-	// Draw the player texture at the calculated edge position
-	DrawTextureEx(texture, drawingSquare.position, 0.0f, scale, WHITE);
+	if (isInvincible) {
+		if (flash) {
+			// Draw the hitbox with a red color if the player is invincible
+			DrawTextureEx(texture, drawingSquare.position, 0.0f, scale, WHITE);
+		}
+	}
+	else {
+		// Draw the player texture at the calculated edge position
+		DrawTextureEx(texture, drawingSquare.position, 0.0f, scale, WHITE);
+	}
 }
 
 void Player::BorderCollision(Square* borderBox)
@@ -95,13 +107,17 @@ void Player::HealPlayer(int healAmount)
 }
 
 void Player::DamagePlayer(int damageAmount)
-{
-	// Damage the player by the specified amount
-	health -= damageAmount;
-	if (health < 0) {
-		health = 0; // Cap the health at 0
+{	
+	if (!isInvincible) {
+		// Damage the player by the specified amount
+		health -= damageAmount;
+		if (health < 0) {
+			health = 0; // Cap the health at 0
+		}
 	}
 	cout << health << endl; // Print the current health
+	isInvincible = true; // Set the player as invincible
+	flash = false; // Reset the flash effect
 }
 
 // Getters
@@ -119,4 +135,29 @@ int* Player::ReturnMaxHealth() {
 Square* Player::ReturnHitbox() {
 	// Return the player's hitbox
 	return &hitboxSquare;
+}
+
+// Update the player's position based on the delta time
+
+void Player::Update(float* deltatime, Square* borderBox, GameState* gameState)
+{
+	if (health <= 0) {
+		*gameState = GAMEOVER; // Change the game state to GAMEOVER if health is 0
+	}
+	if (isInvincible) {
+		invincibilityTimer += *deltatime; // Update the invincibility timer
+		if (invincibilityTimer >= invincibilityDuration) {
+			isInvincible = false; // Reset the invincibility status
+			invincibilityTimer = 0.0f; // Reset the invincibility timer
+		}
+		else {
+			flashTimer += *deltatime; // Update the flash timer
+			if (flashTimer >= flashDuration) {
+				flash = !flash; // Toggle the flash effect
+				flashTimer = 0.0f; // Reset the flash timer
+			}
+		}
+	}
+	// Update the player's position and hitbox
+	Movement(deltatime, borderBox);
 }

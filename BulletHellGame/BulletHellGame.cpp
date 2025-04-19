@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "UserInterface.h"
 #include "Waves.h"
+#include "Title.h"
 
 int main()
 {
@@ -16,47 +17,95 @@ int main()
 	//game initialization
 	GameState gameState = PLAYING; // Set the initial game state
 
-	Player* player = new Player(&screenScale);
-	BorderBox* borderBox = new BorderBox(&screenScale);
-	WaveCounter* waveCounter = new WaveCounter(&screenScale);
-	HealthBar* healthBar = new HealthBar(&screenScale);
-
-
-	WaveManager* waveManager = new WaveManager(borderBox->ReturnInnerBorder()); // Initialize the wave manager
-	// Initialize the wave counter and health bar
-
 	float deltatime = 0.0f;
+	int waveReached = 0; // Initialize the wave reached variable
 
 	// end Initialization
 
 	// Main game loop
-	while (!WindowShouldClose())
+	while (!WindowShouldClose() && gameState != EXIT)
 	{
 		switch (gameState) // Check the game state
 
 		{
-		case PLAYING: // If the game is in the playing state
-			// Update
-			deltatime = GetFrameTime();
+		case MAINMENU:
+		{
+			Title* title = new Title(&screenScale); // Create a new title object
+			while (!WindowShouldClose() && gameState == MAINMENU) // Loop until the game is closed or the state changes
+			{
+				title->Update(&gameState); // Update the title screen
 
-			player->Movement(&deltatime, borderBox->ReturnInnerBorder()); //updates the player position
-			waveManager->Update(&deltatime, player, borderBox->ReturnInnerBorder()); //updates the wave manager
+				BeginDrawing();
 
-			BeginDrawing();
+				ClearBackground(BLACK); // Clear the background
+				title->Draw(); // Draw the title screen
 
-			ClearBackground(BLACK);
-			//DrawBackingGridCheckers(); //draws the backing grid for testing
-			player->Draw(); //draws the player
-			waveManager->Draw(); //draws the wave manager
-			borderBox->Draw(); //draws the border box
-			waveCounter->Draw(waveManager->GetWaveNumber()); //draws the wave counter
-			healthBar->Draw(player->ReturnMaxHealth(), player->ReturnHealth()); //draws the health bar
-
-			EndDrawing();
+				EndDrawing();
+			}
 			break;
+		}
+		case PLAYING: // If the game is in the playing state
+		{
+			Player* player = new Player(&screenScale);
+			BorderBox* borderBox = new BorderBox(&screenScale);
+			WaveCounter* waveCounter = new WaveCounter(&screenScale);
+			HealthBar* healthBar = new HealthBar(&screenScale);
+			WaveManager* waveManager = new WaveManager(borderBox->ReturnInnerBorder()); // Initialize the wave manager
 
+			while (!WindowShouldClose() && gameState == PLAYING) // Loop until the game is closed or the state changes
+			{
+				// Update
+				deltatime = GetFrameTime();
+
+				player->Update(&deltatime, borderBox->ReturnInnerBorder(), &gameState); //updates the player position
+				waveManager->Update(&deltatime, player, borderBox->ReturnInnerBorder()); //updates the wave manager
+
+				BeginDrawing();
+
+				ClearBackground(BLACK);
+				//DrawBackingGridCheckers(); //draws the backing grid for testing
+				player->Draw(); //draws the player
+				waveManager->Draw(); //draws the wave manager
+				borderBox->Draw(); //draws the border box
+				waveCounter->Draw(waveManager->GetWaveNumber()); //draws the wave counter
+				healthBar->Draw(player->ReturnMaxHealth(), player->ReturnHealth()); //draws the health bar
+
+				EndDrawing();
+			}
+			waveReached = *waveManager->GetWaveNumber(); // Get the wave reached
+			// Clean up
+			delete player; // Delete the player object
+			delete borderBox; // Delete the border box object
+			delete waveCounter; // Delete the wave counter object
+			delete healthBar; // Delete the health bar object
+			delete waveManager; // Delete the wave manager object
+			break;
+		}
+		case GAMEOVER: // If the game is over
+		{
+			while (!WindowShouldClose() && gameState == GAMEOVER) // Loop until the game is closed or the state changes
+			{
+				if (IsKeyPressed(KEY_R)) {
+					gameState = MAINMENU; // Restart the game
+				}
+				else if (IsKeyPressed(KEY_ESCAPE)) {
+					gameState = EXIT; // Exit the game
+				}
+
+				BeginDrawing();
+				ClearBackground(BLACK); // Clear the background
+				// Display game over screen
+				DrawText("Game Over", screenScale.x / 2 - MeasureText("Game Over", 20) / 2, screenScale.y / 2 - 10, 20, WHITE);
+				DrawText(TextFormat("You reached wave %i", waveReached), screenScale.x / 2 - MeasureText(TextFormat("You reached wave %i", waveReached), 20) / 2, screenScale.y / 2 + 10, 20, WHITE);
+				DrawText("Press R to restart or ESC to exit", screenScale.x / 2 - MeasureText("Press R to restart or ESC to exit", 20) / 2, screenScale.y / 2 + 30, 20, WHITE);
+
+				EndDrawing();
+			}
+			break;
+		}
 		}
 	}
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

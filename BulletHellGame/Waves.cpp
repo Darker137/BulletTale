@@ -42,27 +42,21 @@ WaveManager::WaveManager(Square* border) // Constructor for the WaveManager clas
 {
 	waveNumber = 1; // Initialize the wave number
 
-	spawnArea.position = { border->position.x , border->position.y }; // Set the spawn area position
-	spawnArea.size = { border->size.x , border->size.y }; // Set the spawn area size
+	playArea.position = { border->position.x , border->position.y }; // Set the spawn area position
+	playArea.size = { border->size.x , border->size.y }; // Set the spawn area size
 
-/*
-	// Initialize the waves vector with a new wave
-	WaveBase* wave1 = new WaveBase(); // Create a new wave
-	wave1->AddAttack(new BulletWheel(&waveNumber, { screenScale->x * 0.5f, screenScale->y * 0.25f })); // Add a BulletWheel attack to the wave
-	waves.push_back(wave1); // Add the wave to the vector
+	float xPos[2];
+	xPos[0] = playArea.position.x + (playArea.size.y * 0.2f); // Calculate the x position for the spawn area
+	xPos[1] = playArea.position.x + playArea.size.x - (playArea.size.y * 0.2f); // Calculate the x position for the spawn area
 
-	WaveBase* wave2 = new WaveBase(); // Create a new wave
-	wave2->AddAttack(new BulletWheel(&waveNumber, { screenScale->x * 0.25f, screenScale->y * 0.5f })); // Add a BulletWheel attack to the wave
-	wave2->AddAttack(new BulletWheel(&waveNumber, { screenScale->x * 0.75f, screenScale->y * 0.5f })); // Add a BulletWheel attack to the wave
-	waves.push_back(wave2); // Add the wave to the vector
+	for (int i = 0; i < 2; i++) { // Loop through the x positions
+		for (int j = 0; j < 4; j++) { // Loop through the y positions
+			bulletAttackPositions.push_back({ xPos[i], playArea.position.y + (playArea.size.y * 0.2f * (j+1)) }); // Add the spawn position to the vector
+		}
+	}
 
-	WaveBase* wave3 = new WaveBase(); // Create a new wave
-	wave3->AddAttack(new BulletWheel(&waveNumber, { screenScale->x * 0.25f, screenScale->y * 0.25f })); // Add a BulletWheel attack to the wave
-	wave3->AddAttack(new BulletWheel(&waveNumber, { screenScale->x * 0.75f, screenScale->y * 0.25f })); // Add a BulletWheel attack to the wave
-	wave3->AddAttack(new BulletWheel(&waveNumber, { screenScale->x * 0.25f, screenScale->y * 0.75f })); // Add a BulletWheel attack to the wave
-	wave3->AddAttack(new BulletWheel(&waveNumber, { screenScale->x * 0.75f, screenScale->y * 0.75f })); // Add a BulletWheel attack to the wave
-	waves.push_back(wave3); // Add the wave to the vector
-*/
+	laserSpawnArea.position = { playArea.position.x + (playArea.size.x * 0.2f) , playArea.position.y + (playArea.size.y * 0.2f)};
+	laserSpawnArea.size = { playArea.size.x - (playArea.size.x * 0.4f) , playArea.size.y - (playArea.size.y * 0.4f)};
 }
 
 void WaveManager::Update(float* deltatime, Player* player, Square* borderHitbox) // Update the wave manager
@@ -99,22 +93,37 @@ int* WaveManager::GetWaveNumber() // Get the current wave number
 }
 
 void WaveManager::NewWave() {
-	int attackCount = waveNumber / 5 + 1; // Calculate the number of attacks in the wave
-	if (rand() % 10 == 0) {
-		attackCount *= 2; // Double the attack count with a 10% chance
+	int bulletAttackCount = waveNumber / 5 + 1; // Calculate the number of attacks in the wave	
+	if (bulletAttackCount > 4) { // Limit the maximum number of attacks to 5
+		bulletAttackCount = 4; // Set the attack count to 5
 	}
-	if (rand() % 2 == 0) {
-		attackCount++; // Increase the attack count with a 50% chance
+	if (rand() % 2 == 0) { // Randomly increase the attack count
+		bulletAttackCount++; // Increase the attack count with a 50% chance
 	}
 	WaveBase* newWave = new WaveBase(); // Create a new wave
-	for (int i = 0; i < attackCount; i++) { // Loop through the number of attacks
+
+	vector<int> usedSpawns; // Vector to keep track of used spawn positions
+
+	for (int i = 0; i < bulletAttackCount; i++) { // Loop through the number of attacks
+		int spawnIndex = rand() % bulletAttackPositions.size(); // Randomly select a spawn position
+		while (find(usedSpawns.begin(), usedSpawns.end(), spawnIndex) != usedSpawns.end()) {
+			// Check if the spawn position has already been used
+			spawnIndex = rand() % bulletAttackPositions.size(); // Select a new spawn position
+		}
+		usedSpawns.push_back(spawnIndex); // Add the spawn position to the used list
 		if (rand() % 2 == 0) { // Randomly choose between BulletWheel and BulletRing
-			newWave->AddAttack(new BulletWheel(&waveNumber, { spawnArea.position.x + ((((rand() % 4) + 1) * 0.2f) * spawnArea.size.x), spawnArea.position.y + ((((rand() % 4) + 1) * 0.2f) * spawnArea.size.y) })); // Add a BulletWheel attack to the wave
+			newWave->AddAttack(new BulletWheel(&waveNumber, bulletAttackPositions[spawnIndex])); // Add a BulletWheel attack to the wave
 		}
 		else {
 			// Add a BulletRing attack to the wave
-			newWave->AddAttack(new BulletRing(&waveNumber, { spawnArea.position.x + ((((rand() % 4) + 1) * 0.2f) * spawnArea.size.x), spawnArea.position.y + ((((rand() % 4) + 1) * 0.2f) * spawnArea.size.y) })); // Add a BulletWheel attack to the wave
+			newWave->AddAttack(new BulletRing(&waveNumber, bulletAttackPositions[spawnIndex])); // Add a BulletWheel attack to the wave
 		}
+	}
+
+	int laserAttackCount = waveNumber / 5 + 1;
+
+	for (int i = 0; i < laserAttackCount; i++) {
+		newWave->AddAttack(new Laser(&waveNumber, &playArea, &laserSpawnArea));
 	}
 	waves.push_back(newWave); // Add the wave to the vector
 }

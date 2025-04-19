@@ -73,6 +73,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>src/;lib/;include/;$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>/src;/lib;/include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -123,12 +126,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>/src;/inclide;/lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>lib/raylib.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -136,6 +141,7 @@
     <ClCompile Include="BulletHellGame.cpp" />
     <ClCompile Include="GeneralFunctions.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Title.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="Waves.cpp" />
   </ItemGroup>
@@ -143,6 +149,7 @@
     <ClInclude Include="Attacks.h" />
     <ClInclude Include="GeneralFunctions.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Title.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="Waves.h" />
   </ItemGroup>

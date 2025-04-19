@@ -15,7 +15,8 @@ struct Square {
 enum GameState {
 	MAINMENU,
 	PLAYING,
-	GAMEOVER
+	GAMEOVER,
+	EXIT,
 };
 
 void DrawBackingGridCheckers(); //draws the backing grid for testing	
